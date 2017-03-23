@@ -1,15 +1,17 @@
 from flask import Flask
 import json
 import random
+import MySQLdb
+
 
 app = Flask(__name__)
 
 
-@app.route('/index/<user>', methods=['GET','POST','PUT','DELETE'])
-
+@app.route('/<user>', methods=['GET','POST','PUT','DELETE'])
 
 def hello_world(user):
 
+    print "user"
     index = random.randint(1, 5)
 
     if index == 0:
@@ -20,7 +22,6 @@ def hello_world(user):
         ad = 'three'
     else: ad = 'other'
 
-
     obj = [[1, 2, 3], 123, 123.123,'random:'+ad,'abc', {'key1': user, 'key2': (4, 5, 6)}]
     encodedjson = json.dumps(obj)
 
@@ -29,5 +30,6 @@ def hello_world(user):
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
 
