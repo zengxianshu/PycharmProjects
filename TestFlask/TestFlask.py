@@ -1,7 +1,7 @@
 from flask import Flask
 import json
 import random
-import MySQLdb
+# import MySQLdb
 
 
 app = Flask(__name__)
